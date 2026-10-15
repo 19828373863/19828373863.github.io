@@ -1,0 +1,210 @@
+{
+  "version": 2,
+  "createdAt": "2026-10-15T06:32:58+00:00",
+  "frame": {
+    "xMinKm": 100,
+    "xMaxKm": 1700,
+    "yMinKm": 440,
+    "yMaxKm": 1400
+  },
+  "centreKm": [
+    900,
+    920
+  ],
+  "world": {
+    "xMin": -800,
+    "xMax": 800,
+    "zMin": -480,
+    "zMax": 480,
+    "notes": "texture uv = ((X - xMin)/(xMax - xMin), (Z - zMin)/(zMax - zMin)); row 0 = north"
+  },
+  "kmPerPixel": 0.4,
+  "vertical": {
+    "notes": "Terrain height in world units = exaggeration * H * (h/H)^gamma with h = (DEM metres - seaLevelMetres)/1000 and H = referenceKm. The ME-DEM datum puts sea level at 16 grey levels (304.8 m): DEM values below it are real shelf bathymetry; seas are below-datum regions connected to coast.seaSeedsKm. Relief is split by scale (vertical v2): a Gaussian low-pass (macroSigmaKm) keeps the full exaggeration so ranges tower, the meso band between macroSigmaKm and mesoSigmaKm is scaled by detailRatio, and the micro band below mesoSigmaKm by microRatio, so ranges read as massive eroded bodies instead of needle fields while peaks stay recognisable. Inside a Gaussian band around every canon river (valleyBandKm) the split relief is pulled back down to the unsplit exaggeration where the low-pass lifted it (narrow valley floors next to ranges), never raised. seaArtefacts: declared DEM digitising artefacts under the sea (corridors) whose narrow ridges are removed by a grey opening of the sea floor (radiusKm).",
+    "exaggeration": 12,
+    "gamma": 0.8,
+    "macroSigmaKm": 12,
+    "detailRatio": 0.45,
+    "mesoSigmaKm": 2.5,
+    "microRatio": 0.25,
+    "referenceKm": 4.9,
+    "seaLevelMetres": 304.8,
+    "seaFloorDepth": 6,
+    "shelfWidthKm": 60,
+    "seaArtefacts": [
+      {
+        "name": "straight ~239 m ridge WNW of the Gulf of Lune (Arda DEM digitising artefact)",
+        "fromKm": [
+          207,
+          1035.4
+        ],
+        "toKm": [
+          96,
+          1072.7
+        ],
+        "widthKm": 8,
+        "featherKm": 3,
+        "radiusKm": 3
+      }
+    ],
+    "valleyBandKm": {
+      "great": 14,
+      "major": 10,
+      "minor": 7,
+      "stream": 5
+    }
+  },
+  "files": {
+    "height": {
+      "file": "height.u16",
+      "format": "u16le",
+      "width": 4000,
+      "height": 2400,
+      "min": -6.597213268280029,
+      "max": 43.90595245361328,
+      "sha256": "5ed8a016c445e7a510290d68ddc87a3aa338f424b91ff07240e0199e81bfcbb3"
+    },
+    "water": {
+      "file": "water.rgba8.parts.json",
+      "format": "rgba8",
+      "width": 4000,
+      "height": 2400,
+      "channels": [
+        "riverChannel",
+        "lake",
+        "land",
+        "riverValley"
+      ],
+      "sha256": "24dbee64f119cf6c81aa5b2b04b7198d5ce471217b3dac5bebb417d49c54a8cc"
+    },
+    "landcover": {
+      "file": "landcover.rgba8.parts.json",
+      "format": "rgba8",
+      "width": 4000,
+      "height": 2400,
+      "channels": [
+        "forest",
+        "wetland",
+        "vulcanism",
+        "road"
+      ],
+      "sha256": "57f94db1b42b02e9999b0dbc2ced4a63ecf413f7caf4fff12eec3cb0602f4c2e"
+    },
+    "forests": {
+      "file": "forests.rgba8.parts.json",
+      "format": "rgba8",
+      "width": 4000,
+      "height": 2400,
+      "channels": [
+        "mirkwood",
+        "fangorn",
+        "lorien",
+        "oldForest"
+      ],
+      "sha256": "49707f03d6495ded958cebf9a46ea5f20af5e631d01802322c7936cd2eb5b22c"
+    },
+    "terrain": {
+      "file": "terrain.rgba8",
+      "format": "rgba8",
+      "width": 2000,
+      "height": 1200,
+      "channels": [
+        "ao",
+        "valley",
+        "wetness",
+        "flow"
+      ],
+      "sha256": "6e5d0d74e3a4089070ade544b1180624c045d8b0d8371b43fe8c5a18b2aa490b"
+    },
+    "look": {
+      "file": "look.rgba8",
+      "format": "rgba8",
+      "layers": 5,
+      "tileWidth": 1000,
+      "tileHeight": 600,
+      "regions": [
+        "eriador",
+        "lindon",
+        "north",
+        "shire",
+        "enedwaith",
+        "rhovanion",
+        "mirkwood",
+        "wilderland",
+        "brown-lands",
+        "lorien",
+        "fangorn",
+        "rohan",
+        "gondor",
+        "ithilien",
+        "dagorlad",
+        "mordor",
+        "nurn",
+        "rhun",
+        "harad"
+      ],
+      "sha256": "09ab84e643821adc224016ac96017afd7df6123abea9eec8460b6d7c68b6bc48"
+    },
+    "rivers": {
+      "file": "rivers.json",
+      "count": 86,
+      "sha256": "1308c450c881a2ebbfffb66e2ee2c4c13b6d517058e38fe7a1fb27337f00689a"
+    },
+    "lakes": {
+      "file": "lakes.json",
+      "count": 8,
+      "sha256": "6e952696ffba6aeaa230f40dd5ca4fdded6b43ef96ff813081e98101df01fcba"
+    },
+    "roads": {
+      "file": "roads.json",
+      "count": 17,
+      "sha256": "d963b991a46476b8dbd42d39e13f5eb7f824dd007395493a0b440e549a079db7"
+    },
+    "report": {
+      "file": "report.json",
+      "sha256": "33e82a48f5c5ff347db4568079d2089f231949f0d1a38df0b742c700ac2197f7"
+    }
+  },
+  "lakes": [
+    {
+      "key": "lake of moria",
+      "level": 24.441,
+      "areaKm2": 0.3
+    },
+    {
+      "key": "sea of rhn",
+      "level": 2.7956,
+      "areaKm2": 10839.7
+    },
+    {
+      "key": "sea of nrnen",
+      "level": 4.7779,
+      "areaKm2": 5737.1
+    },
+    {
+      "key": "long lake",
+      "level": 3.8902,
+      "areaKm2": 159
+    },
+    {
+      "key": "nen hithoel",
+      "level": 4.4,
+      "areaKm2": 204
+    },
+    {
+      "key": "mirrormere",
+      "level": 26.6235,
+      "areaKm2": 6.6
+    },
+    {
+      "key": "lake evendim",
+      "level": 4.912,
+      "areaKm2": 443.7
+    },
+    {
+      "key": "bywater pool",
+      "level": 3.7175,
+      "areaKm2": 0.8
+    }
+  ]
+}

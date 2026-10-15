@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "generator": "tools/textures/prep.mjs",
+  "channels": "R,G normal xy (0.5 flat) · B luminance detail ratio/2 · A height",
+  "layers": [
+    {
+      "id": "meadow",
+      "source": "aerial_grass_rock"
+    },
+    {
+      "id": "dry",
+      "source": "withered_grass"
+    },
+    {
+      "id": "rock",
+      "source": "aerial_rocks_02"
+    },
+    {
+      "id": "snow",
+      "source": "snow_field_aerial"
+    },
+    {
+      "id": "scree",
+      "source": "river_small_rocks"
+    },
+    {
+      "id": "ash",
+      "source": "burned_ground_01"
+    }
+  ],
+  "sizes": [
+    512,
+    1024
+  ],
+  "files": {
+    "detail-512.bin": {
+      "bytes": 6291456,
+      "sha256": "4186377064b5cb22487a9e5fa8011f70b6205cfb39e4e1734cf533025ea6f52e"
+    },
+    "detail-1024.bin": {
+      "bytes": 25165824,
+      "sha256": "3171964688de29e81067ebb02baaeb021ae9a2b9451b5608145df81d0d7d22bb"
+    }
+  }
+}

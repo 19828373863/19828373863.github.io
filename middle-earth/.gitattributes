@@ -5,3 +5,4 @@
 *.part1 binary
 *.glb binary
 *.ttf binary
+world/*.json -text

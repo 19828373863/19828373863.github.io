@@ -1,0 +1,7 @@
+*.bin binary
+*.rgba8 binary
+*.u16 binary
+*.part0 binary
+*.part1 binary
+*.glb binary
+*.ttf binary
